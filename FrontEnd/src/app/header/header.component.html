@@ -1,0 +1,70 @@
+<div class="header">
+        <div *ngIf="login" class="uname">
+                <div class="heading">
+                     <h4 >UST SOW TRACKER</h4>
+                     <!-- <h4 *ngIf ="!loggedIn" style="text-align:center;">UST </h4> -->
+                </div>
+                <div *ngIf="login" class="greeting">
+                    <b> Welcome {{Username}}!</b>
+                </div>
+             </div><br>
+        <div class="hamburger-menu" *ngIf="header && login">
+                <input id="menu__toggle" type="checkbox" [(ngModel)]="isChecked" (change)="update()" />
+                <label class="menu__btn" for="menu__toggle" > <span class="icon text-danger"></span> </label>
+                <ul class="menu__box">
+                        <li *ngIf="dashboard"><a class="menu__item" routerLink="/dashboard" routerLinkActive="active"
+                                        (click)="onclick()"><i class="fa fa-desktop"></i> Dashboard</a></li>
+                        <li *ngIf="sow"><a class="menu__item" routerLink="/sow" routerLinkActive="active"
+                                        (click)="onclick()">
+
+                                        <i class="fa fa-th-list"></i>&ensp;SO&ensp;Details</a>
+                        </li>
+                        <li *ngIf="candidatedetails"><a class="menu__item" routerLink="/candidatedetails"
+                                        routerLinkActive="active" (click)="onclick()"><i
+                                                class="fa fa-users"></i>&ensp;Candidate
+
+                                        Details</a></li>
+
+                        <li *ngIf="mapping"><a class="menu__item" routerLink="/mapping" routerLinkActive="active"
+                                        (click)="onclick()"> <i class="fa fa-code-fork"></i>&ensp;SOCandidate
+                                        Mapping</a></li>
+
+                        <li *ngIf="domain"><a class="menu__item" routerLink="/domain" routerLinkActive="active"
+                                        (click)="onclick()"> <i class="fa fa-globe"></i>&ensp;Domain</a></li>
+
+                        <li *ngIf="technology"><a class="menu__item" routerLink="/technology" routerLinkActive="active"
+                                        (click)="onclick()"> <i class="fa fa-rocket"></i>&ensp;Technology</a></li>
+
+                        <div *ngIf="registration || ChangePW" class="menu__item1">
+
+                                <a (click)="managePassword()">
+
+                                        <i class="fa fa-cog"></i>&ensp;User&ensp;Settings&ensp;<i
+                                                class="fa fa-caret-down"></i>
+                                </a>
+
+                                <div *ngIf="managePw">
+
+                                        <a *ngIf="registration" class="menu__item2" routerLink="/registration"
+                                                routerLinkActive="active" (click)="onclick()">
+
+                                                <i class="fa fa-pencil-square"></i>&ensp;Registration
+
+                                        </a>
+                                        <a *ngIf="ChangePW" class="menu__item2" routerLink="/changePw"
+                                                routerLinkActive="active" (click)="onclick()">
+
+                                                <i class="fa fa-key"></i>&ensp;Change&ensp;Password
+                                        </a>
+                                </div>
+                        </div>
+                        <li *ngIf="login"><a class="menu__item" routerLink='/login' (click)="logOut()"> <i
+                                                class="fa fa-sign-out"></i>&ensp;LogOut</a>
+                        </li>
+                </ul>
+        </div>    
+</div>
+
+
+
+        
